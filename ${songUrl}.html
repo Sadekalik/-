@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🎵 Sadek AI Music</title>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    input, select, button {
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+    .ad {
+      background-color: #333;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px dashed yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ad">🟡 Sponsored Ad: Sadek Music Promo! Visit now!</div>
+
+  <h1>🎤 Sadek AI Music Generator</h1>
+
+  <input type="text" id="lyricsInput" placeholder="আপনার গানের কথা লিখুন..." size="40"><br>
+
+  <select id="voiceType">
+    <option value="male">🎙️ পুরুষ কণ্ঠ</option>
+    <option value="female">🎤 নারী কণ্ঠ</option>
+    <option value="ovi">🪔 ওভি (গ্রামীণ কণ্ঠ)</option>
+  </select><br>
+
+  <button onclick="generateMusic()">🎶 গান তৈরি করুন</button>
+
+  <div id="result" style="margin-top: 30px;"></div>
+
+  <div id="downloadAd" class="ad" style="display: none;">
+    🔊 Ad: Download this song now & get 1 bonus track!
+  </div>
+
+<script>
+  function generateMusic() {
+    const lyrics = document.getElementById("lyricsInput").value;
+    const voice = document.getElementById("voiceType").value;
+
+    if (!lyrics) {
+      alert("দয়া করে গানের কথা লিখুন।");
+      return;
+    }
+
+    document.getElementById("result").innerHTML = "🎧 গান তৈরি হচ্ছে... অপেক্ষা করুন...";
+
+    // কণ্ঠ অনুযায়ী MP3 ফাইল নির্বাচন
+    let songUrl = "";
+
+    if (voice === "male") {
+      songUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+    } else if (voice === "female") {
+      songUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
+    } else if (voice === "ovi") {
+      songUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3";
+    }
+
+    setTimeout(() => {
+      document.getElementById("result").innerHTML = `
+        <audio controls>
+          <source src="${songUrl}" type="audio/mpeg">
+        </audio><br>
+        <a href="${songUrl}" download>
+          <button>⬇️ গান ডাউনলোড করুন</button>
+        </a>
+      `;
+      document.getElementById("downloadAd").style.display = "block";
+    }, 2000); // একটু delay যেন লোডিং দেখা যায়
+  }
+</script>
+
+</body>
+</html>
+      });
+
+      const songUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+
+      document.getElementById("result").innerHTML = `
+        <audio controls>
+          <source src="${songUrl}" type="audio/mpeg">
+        </audio><br>
+        <a href="${songUrl}" download>
+          <button>⬇️ গান ডাউনলোড করুন</button>
+        </a>
+      `;
+      document.getElementById("downloadAd").style.display = "block";
+    } catch (error) {
+      document.getElementById("result").innerHTML = "❌ গান তৈরি করা যায়নি। আবার চেষ্টা করুন।";
+    }
+  }
+</script>
+
+</body>
+</html>
